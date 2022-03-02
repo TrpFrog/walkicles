@@ -8,19 +8,28 @@ export type ArticleData = {
     id: string
     siteName: string
     title: string
+    author: string
     url: string
+    domain: string
+    faviconUrl: string
     walkedDate: Date
     writtenDate: Date
     description?: string
     thumbnailUrl?: string
+    distanceKm?: number
 }
 
 const fetchOGP = async (data: ArticleData) => {
     const ogs = require('open-graph-scraper');
     const fetchedProps = await ogs({url: data.url}).then((e: any) => {
         const { result } = e;
+        const domain = result?.ogUrl?.split('//').slice(-1)[0].split('/')[0];
+        const faviconUrl = result?.favicon.startsWith('/')
+            ? 'https://' + domain + result?.favicon
+            : result?.favicon
         return {
-            faviconUrl: result?.ogUrl + result?.favicon,
+            domain,
+            faviconUrl,
             description: result?.ogDescription,
             thumbnailUrl: result?.ogImage?.url
         }
@@ -47,5 +56,7 @@ export const fetchBlogData = async () => {
         }))
         .map(fetchOGP)
 
-    return Promise.all(articleDataList)
+    const ret = await Promise.all(articleDataList);
+
+    return ret.sort((a, b) => b.walkedDate.getTime() - a.walkedDate.getTime())
 }
