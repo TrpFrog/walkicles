@@ -1,6 +1,8 @@
 import type {NextPage} from 'next'
 import styles from '../styles/Home.module.css'
 import {ArticleData, fetchBlogData} from "../lib/articles";
+import Layout from "../components/Layout";
+import BlogCard from "../components/BlogCard";
 
 type Props = {
     data: ArticleData[]
@@ -8,7 +10,6 @@ type Props = {
 
 export const getStaticProps = async () => {
     const data = await fetchBlogData()
-    console.log(data)
 
     return {
         props: {
@@ -19,13 +20,13 @@ export const getStaticProps = async () => {
 
 const Home: NextPage<Props> = ({data}) => {
     return (
-        <div className={styles.container}>
-            {data.map(e => (
-                <div key={e.id}>
-                    {e.title}
-                </div>
-            ))}
-        </div>
+        <Layout>
+            <div id={styles.card_grid}>
+                {data.map(e => (
+                    <BlogCard data={e} key={e.id}/>
+                ))}
+            </div>
+        </Layout>
     )
 }
 

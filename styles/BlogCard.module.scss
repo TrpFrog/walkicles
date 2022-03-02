@@ -1,0 +1,93 @@
+.blog_card {
+    background: aliceblue;
+    display: grid;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+    border-radius: 3px;
+    transition: .2s;
+
+    grid-template-areas:
+        "header" "image" "main";
+
+    &:hover {
+        box-shadow: 0 4px 6px rgba(0,0,0,0.26);
+    }
+}
+
+
+.favicon_and_url {
+    display: grid;
+    grid-template-areas: "favicon url";
+    gap: 5px;
+
+    $favicon-size: 1.2em;
+    grid-template-columns: $favicon-size auto;
+
+    img {
+        grid-area: favicon;
+        width: $favicon-size;
+        height: $favicon-size;
+        border-radius: 2px;
+    }
+
+    span {
+        grid-area: url;
+    }
+}
+
+.thumbnail {
+    grid-area: image;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 8em;
+
+    * {
+        margin: 0;
+    }
+}
+
+.header {
+    grid-area: header;
+    margin: .5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main {
+    grid-area: main;
+    margin: .5em;
+}
+
+.author {
+    margin: 0;
+    text-align: center;
+}
+
+.table {
+    display: flex;
+    justify-content: space-between;
+    div {
+        height: 1.5em;
+        display: grid;
+        gap: 2px;
+        grid-template-columns: 1.2em auto;
+
+        * {
+            margin: auto 0;
+        }
+
+        *:nth-child(1) {
+            margin: auto auto;
+        }
+    }
+}
