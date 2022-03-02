@@ -11,7 +11,7 @@ $paddingSide: 3rem;
     color: white;
     text-align: center;
     p {
-        margin: 0 0 2em;
+        margin: 0 1em 2em;
     }
 }
 
@@ -45,4 +45,8 @@ $paddingSide: 3rem;
 
 #grid main {
     padding: $paddingSide;
+
+    @media screen and (max-width: 480px) {
+        padding: $paddingSide / 3;
+    }
 }
