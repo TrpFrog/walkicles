@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Walkicles
 
-## Getting Started
+## これは何
 
-First, run the development server:
+徒歩記事まとめページです。articles フォルダに記事の情報を書いた yaml ファイルを置くと勝手に新着順で並べて表示してくれます。
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## 僕の記事も出して欲しいんだけど！
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+大歓迎です！このサイトに記事を追加する方法は2つあります。
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+ - 私に直接連絡する (Twitter: @TrpFrog)
+ - Pull Request を投げる
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+どちらの場合においても次の情報が必須となるのでご準備ください。
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 記事を追加するのに必要な情報
 
-## Learn More
+ - `siteName`: ブログのタイトル (記事のタイトルではない)
+ - `author`: 書いた人の名前
+ - `title`: 記事のタイトル
+ - `walkedDate`: 歩いた日
+ - `writtenDate`: 記事を書いた日
+ - `url`: 記事へのURL
+ 
+これらの情報は必須です。必ず書いてください！また次の情報は任意ですが、入れてくださると助かります。
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `distanceKm`: 歩いた距離 (単位はkm, 数値のみ記入)
